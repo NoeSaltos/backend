@@ -54,11 +54,25 @@ class LandingAPIDetail(APIView):
          if data:
              return Response(data, status=status.HTTP_200_OK)
          else:
-             return Response({"error": "Document not found"}, status=status.HTTP_404_NOT_FOUND)
+             return Response({"error": "Documento no encontrado"}, status=status.HTTP_404_NOT_FOUND)
         #  return Response(None, status=status.HTTP_200_OK)
 
      def put(self, request, pk):
-         return Response(None, status=status.HTTP_200_OK)
+         ref = db.reference(f'{self.collection_name}/{pk}')
+         data = ref.get()
+         if data:
+             ref.update(request.data)
+             return Response({"mensaje": "Documento actualizado exitosamente"}, status=status.HTTP_200_OK)
+         else:
+             return Response({"error": "Documento a actualizar no encontrado"}, status=status.HTTP_404_NOT_FOUND)
+        #  return Response(None, status=status.HTTP_200_OK)
 
      def delete(self, request, pk):
-         return Response(None, status=status.HTTP_200_OK)
+         ref = db.reference(f'{self.collection_name}/{pk}')
+         data = ref.get()
+         if data:
+             ref.delete()
+             return Response({"mensaje": "Documento eliminado exitosamente"}, status=status.HTTP_204_NO_CONTENT)
+         else:
+             return Response({"error": "Documento a eliminar no encontrado"}, status=status.HTTP_404_NOT_FOUND)
+        #  return Response(None, status=status.HTTP_200_OK)
