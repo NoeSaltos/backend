@@ -9,6 +9,7 @@ from datetime import datetime
 	
 from firebase_admin import db
 
+
 class LandingAPI(APIView):
 	    
     name = 'Landing API'
