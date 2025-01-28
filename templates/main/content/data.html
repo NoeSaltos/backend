@@ -29,6 +29,7 @@
             <!-- START - total_responses -->
             {{ total_responses }}
             <!-- END - total_responses -->
+            respuestas
           </p>
         </div>
       </div>
@@ -52,7 +53,7 @@
           <p
             class="text-lg font-semibold text-gray-700 dark:text-gray-200">
             <!-- START - first_responses -->
-            YYY
+            {{ first_response_time }}
             <!-- END - first_responses -->
           </p>
         </div>
@@ -75,9 +76,9 @@
           <p
             class="text-lg font-semibold text-gray-700 dark:text-gray-200">
             <!-- START - last_responses -->
-            {{ total_responses }}
+            {{ ultima_respuesta }}
             <!-- END - last_responses -->
-            respuestas
+           
           </p>
         </div>
       </div>
@@ -101,7 +102,7 @@
           <p
             class="text-lg font-semibold text-gray-700 dark:text-gray-200">
             <!-- START - high_rate_responses -->
-            VVV
+            {{most_common_day}}
             <!-- END - high_rate_responses -->
           </p>
         </div>
@@ -146,7 +147,7 @@
         class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
         <span class="flex items-center col-span-3">
           <!-- START - total_responses_table -->
-          XXX
+          {{ total_responses }}
           <!-- END - total_responses_table -->
           respuestas
         </span>
